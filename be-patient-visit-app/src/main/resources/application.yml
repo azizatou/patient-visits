@@ -1,0 +1,28 @@
+# spring boot port
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  shutdown: graceful
+
+spring:
+  # jackson configuration
+  jackson:
+    default-property-inclusion: non_empty
+    deserialization:
+      adjust-dates-to-context-time-zone: false
+    serialization:
+      write-empty-json-arrays: false
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/patient
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: iam
